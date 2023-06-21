@@ -85,13 +85,18 @@
     </style>
   </head>
   <body>
+    {% include 'navbar.html' %}
+    <img class="img-fluid" id="banner" src="https://jovian--rakesh240497.repl.co/static/jovianhome.jpg">
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">Jovian Careers</h1>
-      <img class="img-fluid" id="banner" src="https://jovian--rakesh240497.repl.co/static/jovianhome.jpg">
-
-
       <h2 class="text-center mt-2 mb-4">About Jovian</h2>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="row mb-8">
+        <div class="col-md-7">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut               labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut               aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui                   officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="d-none d-md-block col-md-4 mb-8" style="margin-left: 5em">
+          <img  style="height:320px; width: 100%; border-radius:4px" id="secondbanner" src = "/static/jovianhome2.jpg">
+        </div>
+      </div>
       <h2 class="text-center mt-2 mb-4">Open Positions</h2>
       <div>
         {% for job in jobs %}
@@ -115,7 +120,7 @@
       <div style="text-align:center;">
         <button class="btn btn-primary btn-lg">Contact Us</button>
       </div>
-      
     </div>
+    {% include 'footer.html' %}
   </body>
 </html>
