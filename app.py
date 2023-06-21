@@ -34,7 +34,7 @@ def hello():
   jobs = None
   return render_template('home.html', jobs = Jobs)
 
-@app.route('api/jobs')
+@app.route('/api/jobs')
 def jobs():
   return jsonify(Jobs)
 if __name__ == "__main__":
