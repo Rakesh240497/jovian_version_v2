@@ -82,6 +82,10 @@
         max-height: 200px;
         object-fit: cover;
       }
+      .joblisting {
+         max-height: 400px; 
+        overflow: scroll;
+      }
     </style>
   </head>
   <body>
@@ -98,20 +102,20 @@
         </div>
       </div>
       <h2 class="text-center mt-2 mb-4">Open Positions</h2>
-      <div>
+      <div class="joblisting">
         {% for job in jobs %}
-        <div class="border-top mt-2 mb-4 row" style="margin-bottom:16px;">
+        <div class="border-top mt-2 mb-4 row" style="margin-bottom:16px; overflow: scroll">
           <div class="col-9">
-              <h4 style="color: rgb(120, 120, 120)">{{job.Title}}</h4>
+              <h4 style="color: rgb(120, 120, 120)">{{job.title}}</h4>
             <div>
-              <b>Location: </b> {{job.Location}}
+              <b>Location: </b> {{job.location}}
             </div>
             <div>
-              Salary: {{job.Salary}}
+              Salary: {{job.currency}} {{job.salary}}
             </div>
           </div>
           <div class="col-3 mt-4" style="text-align:center">
-              <a href="mailto:rakeshkumar@gmail.com?subject=Application%20for: {{job.Title | urlencode}}&body=Your%20Name%3A%20%3CEnter%20Here%3E%0D%0AYour%20Resume%20Link%3A%20%3CEnter%20Resume%20Link%3E%0D%0AYour%20LinkedIn%20Profile%3A%20%3CEnter%20LinkedIn%20Profile%20Link%3E%0D%0A%0D%0ADescribe%20About%20Yourself%20(No%20more%20than%2050%20words)%3A%0D%0A%0D%0A%3CEnter%20your%20Response%3E%0D%0A%0D%0A">
+              <a href="mailto:rakeshkumar@gmail.com?subject=Application%20for: {{job.title | urlencode}}&body=Your%20Name%3A%20%3CEnter%20Here%3E%0D%0AYour%20Resume%20Link%3A%20%3CEnter%20Resume%20Link%3E%0D%0AYour%20LinkedIn%20Profile%3A%20%3CEnter%20LinkedIn%20Profile%20Link%3E%0D%0A%0D%0ADescribe%20About%20Yourself%20(No%20more%20than%2050%20words)%3A%0D%0A%0D%0A%3CEnter%20your%20Response%3E%0D%0A%0D%0A">
                 <button type="button" class="btn btn-outline-primary">Apply</button>
               </a>
 
