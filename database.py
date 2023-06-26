@@ -9,3 +9,21 @@ engine = create_engine(my_secret,
                        }
                     })
 # result_dict = None
+
+def load_data_from_database():
+  with engine.connect()  as conn:
+    result = conn.execute(text("select * from Jobs;"))
+    jobs = [dict(zip(result.keys(), row)) for row in result]
+    return (jobs)
+
+
+
+def load_job_data_from_database(id):
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from Jobs where id = :id"), {"id": id})
+        jobs = [dict(zip(result.keys(), row)) for row in result]
+        if not jobs:
+          return False
+        else: 
+          return jobs[0]
+        
