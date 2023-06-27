@@ -27,3 +27,22 @@ def load_job_data_from_database(id):
         else: 
           return jobs[0]
         
+def jobapplications(application):
+  with engine.connect() as conn:
+    try:
+      query = conn.execute(text("INSERT INTO applications (jobid, fullname, email, linkedin, education, experience, resumelink) "
+                          "VALUES (:jobid, :fullname, :email, :linkedin, :education, :experience, :resumelink)"),
+                     {
+                         "jobid": application['jobid'],
+                         "fullname": application['name'],
+                         "email": application['email'],
+                         "linkedin": application['linkedin'],
+                         "education": application['education'],
+                         "experience": application['experience'],
+                         "resumelink": application['resume']
+                     })
+    except Exception as e:
+      print(f"Error occurred during query execution: {e}")
+      
+    
+    
